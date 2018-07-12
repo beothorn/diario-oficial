@@ -21,35 +21,25 @@ class TestPrPontaGrossa(TestCase):
         expectation = [
             {
                 'data': {
-                    'CONTRATANTE': 'AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA ',
-                    'CONTRATADO': 'ROSILEIDE CONCEIÇÃO GESUATO JUSTUS',
-                    'OBJETO': 'Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividades operacionais.',
-                    'VALOR': 'R$ 2.326,83', 
-                    'DOTAÇÃO ORÇAMENTÁRIA': '201-2524-339031050000-1',
-                    'BASE LEGAL': 'Artigo 24, inciso II, da Lei Federal 8.666/93.',
+                    'CONTRATANTE':'AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA',
+                    'CONTRATADO':'ROSILEIDE CONCEIÇÃO GESUATO JUSTUS',
+                    'OBJETO':'Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividadesoperacionais.',
+                    'VALOR':'2.326,83', 
+                    'DOTAÇÃO ORÇAMENTÁRIA':'na',
+                    'BASE LEGAL':'na'
                 },
-                'source_text': '                                                 DISPENSA DE LICITAÇÃO\n     PROCESSO 001.0003845.15.0\n     CONTRATANTE: Município de Porto Alegre.\n     CONTRATADO: Classul Indústria e Comércio de Placas e Brindes Ltda.\n     OBJETO: Confecção de 50 medalhas Cidade de Porto Alegre.\n     VALOR: R$ 5.535,00.\n     DOTAÇÃO ORÇAMENTÁRIA: 201-2524-339031050000-1\n     BASE LEGAL: Artigo 24, inciso II, da Lei Federal 8.666/93.\n\n                                                  Porto Alegre, 27 de fevereiro de 2015.\n\n                                           URBANO SCHMITT, Secretário Municipal de Gestão.',
+                'source_text': ' CONTRATO Nº 004/2018 LOCATÁRIO: AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA LOCADOR: ROSILEIDE CONCEIÇÃO GESUATO JUSTUS OBJETO: Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividadesoperacionais. VALOR: R$ 2.326,83 (dois mil trezentos e vinte seis reais e oitenta e três centavos) mensais. PRAZO: início em 26/05/2018 e término em 26/05/2019. FORO: Comarca de Ponta Grossa, Estado do Paraná. DISPENSA: Dispensa de Licitação n° 4/2018. ',
             },
             {
                 'data': {
-                    'CONTRATANTE': 'Município de Porto Alegre.',
-                    'CONTRATADO': 'Classul Indústria e Comércio de Placas e Brindes Ltda.',
-                    'OBJETO': 'Gravação a laser em 21 medalhas Cidade de Porto Alegre.',
-                    'VALOR': 'R$ 735,00.',
-                    'DOTAÇÃO ORÇAMENTÁRIA': '201-2524-339031050000-1',
-                    'BASE LEGAL': 'Artigo 24, inciso II, da Lei Federal 8.666/93',
+                    'CONTRATANTE':'AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA',
+                    'CONTRATADO':'MARIA ROSALY GESUATO THOMAZ',
+                    'OBJETO':'Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividadesoperacionais.',
+                    'VALOR':'', 
+                    'DOTAÇÃO ORÇAMENTÁRIA':'na',
+                    'BASE LEGAL':'na'
                 },
-                'source_text': '                                                 DISPENSA DE LICITAÇÃO\n     PROCESSO 001.0003844.15.3\n     CONTRATANTE: Município de Porto Alegre.\n     CONTRATADO: Classul Indústria e Comércio de Placas e Brindes Ltda.\n     OBJETO: Gravação a laser em 21 medalhas Cidade de Porto Alegre.\n     VALOR: R$ 735,00.\n     DOTAÇÃO ORÇAMENTÁRIA: 201-2524-339031050000-1\n     BASE LEGAL: Artigo 24, inciso II, da Lei Federal 8.666/93\n\n                                                  Porto Alegre, 27 de fevereiro de 2015.\n\n                                           URBANO SCHMITT, Secretário Municipal de Gestão.',
-            },
-            {
-                'data': {
-                    'CONTRATANTE': 'Município de Porto Alegre, através da Secretaria Municipal da Saúde.',
-                    'CONTRATADO': 'VIP ELEVADORES LTDA',
-                    'OBJETO': 'Conserto de componente eletrônico do armário de comando de elevador HMIPV, sem cobertura contratual.',
-                    'VALOR': 'R$ 11.232,00 (onze mil reais, duzentos e trinta e dois reais).',
-                    'BASE LEGAL': 'Artigo 24, inciso I, da Lei Federal 8.666/93',
-                },
-                'source_text': '                                               DISPENSA DE LICITAÇÃO\n     PROCESSO 001.037017.14.4\n     CONTRATANTE: Município de Porto Alegre, através da Secretaria Municipal da Saúde.\n     CONTRATADO: VIP ELEVADORES LTDA\n     OBJETO: Conserto de componente eletrônico do armário de comando de elevador HMIPV, sem cobertura contratual.\n     VALOR: R$ 11.232,00 (onze mil reais, duzentos e trinta e dois reais).\n     BASE LEGAL: Artigo 24, inciso I, da Lei Federal 8.666/93\n\n                                                Porto Alegre, 24 de fevereiro de 2015..\n\n                                  CARLOS HENRIQUE CASARTELLI, Secretário Municipal de Saúde.',
+                'source_text': ' CONTRATO Nº 005/2018 LOCATÁRIO: AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA LOCADOR: MARIA ROSALY GESUATO THOMAZ OBJETO: Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividadesoperacionais. VALOR: início em 26/05/2018 e término em 26/05/2019. PRAZO: R$ 2.326,83 (dois mil trezentos e vinte seis reais e oitenta e três centavos) mensais. FORO: Comarca de Ponta Grossa, Estado do Paraná. DISPENSA: Dispensa de Licitação n° 4/2018. ',
             },
         ]
         self.assertEqual(expectation, exemptions)

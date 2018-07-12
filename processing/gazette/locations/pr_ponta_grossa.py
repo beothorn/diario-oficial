@@ -10,9 +10,10 @@ from .base_parser import BaseParser
 
 class PrPontaGrossa(BaseParser):
 
+    #TODO: metodo que faz a regex e retorna o primeiro grupo e faz trim ou retorna vazio
+
     def bidding_exemptions(self):
         lines = self.text.splitlines()
-        print(len(lines))
         exemptions_indexes = [
             index
             for index, line in enumerate(lines)
@@ -34,41 +35,32 @@ class PrPontaGrossa(BaseParser):
         for section in sections:
             sections_first_column.append([line[:100] for line in section])
 
-        for s in sections_first_column:
-            print("\n".join(s))
-        items = [
-            {
-                'data': {
-                    'CONTRATANTE': 'AFEPON – AGÊNCIA DE FOMENTO ECONÔMICO DE PONTA GROSSA ',
-                    'CONTRATADO': 'ROSILEIDE CONCEIÇÃO GESUATO JUSTUS',
-                    'OBJETO': 'Locação de 50% (cinquenta por cento) do imóvel situado na Rua Generoso Marques dos Santos, n°. 217-217A, Centro, Ponta Grossa/PR, cadastro municipal nº 36024, destinado ao armazenamento de material utilizado para prestação de serviços de iluminação e atividades operacionais.',
-                    'VALOR': 'R$ 2.326,83', 
-                    'DOTAÇÃO ORÇAMENTÁRIA': '201-2524-339031050000-1',
-                    'BASE LEGAL': 'Artigo 24, inciso II, da Lei Federal 8.666/93.',
-                },
-                'source_text': '                                                 DISPENSA DE LICITAÇÃO\n     PROCESSO 001.0003845.15.0\n     CONTRATANTE: Município de Porto Alegre.\n     CONTRATADO: Classul Indústria e Comércio de Placas e Brindes Ltda.\n     OBJETO: Confecção de 50 medalhas Cidade de Porto Alegre.\n     VALOR: R$ 5.535,00.\n     DOTAÇÃO ORÇAMENTÁRIA: 201-2524-339031050000-1\n     BASE LEGAL: Artigo 24, inciso II, da Lei Federal 8.666/93.\n\n                                                  Porto Alegre, 27 de fevereiro de 2015.\n\n                                           URBANO SCHMITT, Secretário Municipal de Gestão.',
-            },
-            {
-                'data': {
-                    'CONTRATANTE': 'Município de Porto Alegre.',
-                    'CONTRATADO': 'Classul Indústria e Comércio de Placas e Brindes Ltda.',
-                    'OBJETO': 'Gravação a laser em 21 medalhas Cidade de Porto Alegre.',
-                    'VALOR': 'R$ 735,00.',
-                    'DOTAÇÃO ORÇAMENTÁRIA': '201-2524-339031050000-1',
-                    'BASE LEGAL': 'Artigo 24, inciso II, da Lei Federal 8.666/93',
-                },
-                'source_text': '                                                 DISPENSA DE LICITAÇÃO\n     PROCESSO 001.0003844.15.3\n     CONTRATANTE: Município de Porto Alegre.\n     CONTRATADO: Classul Indústria e Comércio de Placas e Brindes Ltda.\n     OBJETO: Gravação a laser em 21 medalhas Cidade de Porto Alegre.\n     VALOR: R$ 735,00.\n     DOTAÇÃO ORÇAMENTÁRIA: 201-2524-339031050000-1\n     BASE LEGAL: Artigo 24, inciso II, da Lei Federal 8.666/93\n\n                                                  Porto Alegre, 27 de fevereiro de 2015.\n\n                                           URBANO SCHMITT, Secretário Municipal de Gestão.',
-            },
-            {
-                'data': {
-                    'CONTRATANTE': 'Município de Porto Alegre, através da Secretaria Municipal da Saúde.',
-                    'CONTRATADO': 'VIP ELEVADORES LTDA',
-                    'OBJETO': 'Conserto de componente eletrônico do armário de comando de elevador HMIPV, sem cobertura contratual.',
-                    'VALOR': 'R$ 11.232,00 (onze mil reais, duzentos e trinta e dois reais).',
-                    'BASE LEGAL': 'Artigo 24, inciso I, da Lei Federal 8.666/93',
-                },
-                'source_text': '                                               DISPENSA DE LICITAÇÃO\n     PROCESSO 001.037017.14.4\n     CONTRATANTE: Município de Porto Alegre, através da Secretaria Municipal da Saúde.\n     CONTRATADO: VIP ELEVADORES LTDA\n     OBJETO: Conserto de componente eletrônico do armário de comando de elevador HMIPV, sem cobertura contratual.\n     VALOR: R$ 11.232,00 (onze mil reais, duzentos e trinta e dois reais).\n     BASE LEGAL: Artigo 24, inciso I, da Lei Federal 8.666/93\n\n                                                Porto Alegre, 24 de fevereiro de 2015..\n\n                                  CARLOS HENRIQUE CASARTELLI, Secretário Municipal de Saúde.',
-            },
-        ]
-        return items
+        sections_one_line = []
 
+        for s in sections_first_column:
+            section_one_line = "".join(s)
+            section_one_line = re.sub(' +',' ',section_one_line)
+            sections_one_line.append(section_one_line)
+
+
+        items = []
+
+        for l in sections_one_line:
+
+            valor = re.search('VALOR:(.*)PRAZO:', l).group(1).strip()
+
+            items.append(
+                {
+                    'data' : {
+                        'CONTRATANTE':re.search('LOCATÁRIO:(.*)LOCADOR:', l).group(1).strip(),
+                        'CONTRATADO':re.search('LOCADOR:(.*)OBJETO:', l).group(1).strip(),
+                        'OBJETO':re.search('OBJETO:(.*)VALOR:', l).group(1).strip(),
+                        'VALOR':re.search('R\$ ([\d.]+,\d{2})', valor).group(1).strip(), 
+                        'DOTAÇÃO ORÇAMENTÁRIA':'na',
+                        'BASE LEGAL':'na'
+                    },
+                    'source_text':l
+                }
+            )
+
+        return items
